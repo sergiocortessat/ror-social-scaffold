@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @friends = current_user.friendships.filter { |friend| friend if friend != current_user }
+    @pending_requests = current_user.pending_friends
+    @friend_requests = current_user.friend_requests
   end
 
   def show
