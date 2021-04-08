@@ -12,4 +12,7 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     it { should have_many(:likes) }
   end
+  describe 'associations' do
+    it { should have_many(:friendships) }
+  end
 end
