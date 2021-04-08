@@ -47,8 +47,12 @@ group :development, :test do
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'rspec'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 4.0'
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem 'webdrivers'
 end
 
 group :development do
