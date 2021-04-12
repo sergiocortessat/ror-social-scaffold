@@ -18,8 +18,8 @@ class UsersController < ApplicationController
     @friendship = current_user.inverse_friendships.find { |friendship| friendship.user == @user }
     @friendship.update(confirmed: true)
     Friendship.create!(friend_id: current_user.id,
-                      user_id: @user.id,
-                      confirmed: true)
+                       user_id: @user.id,
+                       confirmed: true)
 
     redirect_to root_path
     flash[:notice] = 'Friend request accepted'

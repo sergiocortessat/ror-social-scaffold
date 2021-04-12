@@ -11,7 +11,7 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.build(friend_id: params[:user_id], confirmed: false)
     if @friendship.save
       redirect_to root_path
-      flash[:notice] = 'Friend request sended'
+      flash[:notice] = 'Friend request sent'
     else
       flash[:notice] = 'somthing happened'
     end

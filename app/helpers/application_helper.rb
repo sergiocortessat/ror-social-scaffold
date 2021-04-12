@@ -16,26 +16,26 @@ module ApplicationHelper
     end
   end
 
-  def btn_send(user)
-    return unless current_user.friendships.none? { |friendship| friendship.friend == user }
-
-    (link_to 'Send request', user_friendships_path(user), method: :post)
-  end
-
-  def friend?(user); end
-
   def already_sended?(user)
-    return unless current_user.friendships.any? { |friendship| friendship.friend == user }
+    return unless current_user.pending_friends.any? { |friendship| friendship.friend_id == user }
 
     redirect_to root_path
     flash[:notice] = 'you already sent a request to this person'
   end
 
   def sended_to_us?(_user)
-    return unless current_user.inverse_friendships.any? { |friendship| friendship.user == current_user }
+    return unless current_user.friend_requests.any? { |friendship| friendship.user == current_user }
 
     redirect_to root_path
     flash[:notice] = 'this person already sent a request to you'
+  end
+
+  def btn_send(user)
+    return if current_user.pending_friends.include?(user)
+    return if current_user.friends.include?(user)
+    return if current_user.friend_requests.include?(user)
+
+    (button_to 'Send request', user_friendships_path(user), method: :post)
   end
 
   def all_users(user)
@@ -44,7 +44,7 @@ module ApplicationHelper
     content_tag(:div) do
       content_tag(:h4, user.name) +
         (link_to 'See Profile', user_path(user), class: 'profile-link') +
-        btn_send(user) 
+        btn_send(user)
     end
   end
 end
