@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @friends = current_user.friendships.filter { |friend| friend if friend != current_user }
+    @friends = current_user.friends.filter { |friend| friend if friend != current_user }
     @pending_requests = current_user.pending_friends
     @friend_requests = current_user.friend_requests
   end
@@ -26,6 +26,11 @@ class UsersController < ApplicationController
   end
 
   def deny
-    
+    @user = User.find(params[:id])
+    @friendship = current_user.inverse_friendships.find { |friendship| friendship.user == @user }
+    @friendship.destroy
+
+    redirect_to root_path
+    flash[:notice] = 'Friend request Denied'
   end
 end
