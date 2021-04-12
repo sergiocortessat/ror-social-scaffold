@@ -42,7 +42,7 @@ RSpec.describe 'the signin process', type: :system do
     visit users_path
     click_button 'Send request'
     expect(page).to have_text('Friend request sent')
-    click_link 'Sign out'
+    click_button 'Sign out'
     fill_in 'user[email]', with: user2.email
     fill_in 'user[password]', with: '123456'
     click_button 'Log in'
@@ -62,7 +62,7 @@ RSpec.describe 'the signin process', type: :system do
     visit users_path
     click_button 'Send request'
     expect(page).to have_text('Friend request sent')
-    click_link 'Sign out'
+    click_button 'Sign out'
     fill_in 'user[email]', with: user2.email
     fill_in 'user[password]', with: '123456'
     click_button 'Log in'
