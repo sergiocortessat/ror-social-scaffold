@@ -15,8 +15,8 @@ class User < ApplicationRecord
 
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
-    inverse_friendship = inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
-    friends_array += inverse_friendship
+    # inverse_friendship = inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
+    # friends_array += inverse_friendship
     friends_array.compact
   end
 
