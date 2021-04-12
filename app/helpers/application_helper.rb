@@ -47,4 +47,33 @@ module ApplicationHelper
         btn_send(user)
     end
   end
+
+  def user_sessionss
+    if current_user
+      button_to 'Sign out', destroy_user_session_path, method: :delete
+    else
+      (button_to 'Sign in', new_user_session_path, class: 'btn') +
+        (button_to 'Sign up', new_user_registration_path, class: 'btn')
+    end
+  end
+
+  def notice
+    return unless notice.present?
+
+    content_tag :div, class: 'notice' do
+      contengt_tag :p do
+        notice
+      end
+    end
+  end
+
+  def alert
+    return unless alert.present?
+
+    content_tag :div, class: 'alert' do
+      content_tag :p do
+        notice
+      end
+    end
+  end
 end
