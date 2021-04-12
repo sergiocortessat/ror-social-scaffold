@@ -56,24 +56,4 @@ module ApplicationHelper
         (button_to 'Sign up', new_user_registration_path, class: 'btn')
     end
   end
-
-  def notice
-    return unless notice.present?
-
-    content_tag :div, class: 'notice' do
-      contengt_tag :p do
-        notice
-      end
-    end
-  end
-
-  def alert
-    return unless alert.present?
-
-    content_tag :div, class: 'alert' do
-      content_tag :p do
-        notice
-      end
-    end
-  end
 end
