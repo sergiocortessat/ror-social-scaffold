@@ -38,13 +38,29 @@ module ApplicationHelper
     (button_to 'Send request', user_friendships_path(user), method: :post)
   end
 
+  def btn_mutual(user)
+    return unless user.friends.include?(nil)
+
+    mutual = []
+    user.friends.map do |my_friends|
+      if current_user.friends.map | mutual_friends |
+         mutual_friends == my_friends
+        mutual.push(my_friends.name)
+      else
+        mutual
+      end
+    end
+    mutual.uniq
+  end
+
   def all_users(user)
     return unless user != current_user
 
     content_tag(:div) do
       content_tag(:h4, user.name) +
         (link_to 'See Profile', user_path(user), class: 'profile-link') +
-        btn_send(user)
+        btn_send(user) +
+        btn_mutual(user)
     end
   end
 
