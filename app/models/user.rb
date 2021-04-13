@@ -19,13 +19,6 @@ class User < ApplicationRecord
   has_many :inverse_friendships, -> { where confirmed: false }, class_name: 'Friendship', foreign_key: 'friend_id'
   has_many :friend_requests, through: :inverse_friendships, source: :user
 
-  # def friends
-  #   friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
-  #   inverse_friendship = inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
-  #   friends_array += inverse_friendship
-  #   friends_array.compact
-  # end
-
   def friend?(user)
     friends.include?(user)
   end
