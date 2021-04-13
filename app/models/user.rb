@@ -36,16 +36,6 @@ class User < ApplicationRecord
   end
 
   def friends_and_own_posts
-    myfriends = friends
-    our_posts = []
-    myfriends.each do |f|
-      f.posts.each do |p|
-        our_posts << p
-      end
-    end
-    posts.each do |p|
-      our_posts << p
-    end
-    our_posts.uniq
+    Post.where(user: (friends.to_a << self))
   end
 end
