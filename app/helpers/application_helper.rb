@@ -69,7 +69,7 @@ module ApplicationHelper
       button_to 'Sign out', destroy_user_session_path, method: :delete
     else
       (button_to 'Sign in', new_user_session_path, class: 'btn') +
-        (button_to 'Sign up', new_user_registration_path, class: 'btn')
+        (button_to 'Sign up', new_user_registration_path, method: :get, class: 'btn')
     end
   end
 
