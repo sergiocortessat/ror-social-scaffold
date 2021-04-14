@@ -61,8 +61,20 @@ Terminal or similar to execute the program.
 
 
 ## Testing
+In this project, the testing was done using RSpec to test logic specs.
+## Install
+- In a terminal window type gem install RSpec
+- Once RSpec install has finished, type RSpec --init
+- You will see a folder spec and a file .rspec
+- Inside spec folder, you'll see a spec_helper.rb file.
 
-In this project, the testing was done using Rspec and Capybara to test logic and forms
+## Run
+The testing file is included in spec folder under logicrspec.rb.
+- go to the folder spec: cd spec
+- Inside your terminal type you can type: Rspec spec/*
+- Rspec spec/* to run all test in your spec folder
+ 
+- All test pass
 
 
 ## Run

@@ -15,14 +15,14 @@ class UsersController < ApplicationController
 
   def confirm
     @user = User.find(params[:id])
-    @friendship = current_user.inverse_friendships.find { |friendship| friendship.user == @user }
-    @friendship.update(confirmed: true)
-    Friendship.create!(friend_id: current_user.id,
-                       user_id: @user.id,
-                       confirmed: true)
 
-    redirect_to root_path
-    flash[:notice] = 'Friend request accepted'
+    if current_user.confirm_friend(@user)
+      redirect_to root_path
+      flash[:notice] = 'Friend request accepted'
+    else
+      redirect_to root_path
+      flash[:alert] = 'something went wrong with accepting the invite.'
+    end
   end
 
   def deny

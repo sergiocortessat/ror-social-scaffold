@@ -24,7 +24,7 @@ module ApplicationHelper
   end
 
   def sended_to_us?(_user)
-    return unless current_user.friend_requests.any? { |friendship| friendship.user == current_user }
+    return unless current_user.inverse_friendships.any? { |friendship| friendship.user == current_user }
 
     redirect_to root_path
     flash[:notice] = 'this person already sent a request to you'
@@ -38,13 +38,29 @@ module ApplicationHelper
     (button_to 'Send request', user_friendships_path(user), method: :post)
   end
 
+  def btn_mutual(user)
+    return unless user.friends.include?(nil)
+
+    mutual = []
+    user.friends.map do |my_friends|
+      if current_user.friends.map | mutual_friends |
+         mutual_friends == my_friends
+        mutual.push(my_friends.name)
+      else
+        mutual
+      end
+    end
+    mutual.uniq
+  end
+
   def all_users(user)
     return unless user != current_user
 
     content_tag(:div) do
       content_tag(:h4, user.name) +
         (link_to 'See Profile', user_path(user), class: 'profile-link') +
-        btn_send(user)
+        btn_send(user) +
+        btn_mutual(user)
     end
   end
 
@@ -53,7 +69,7 @@ module ApplicationHelper
       button_to 'Sign out', destroy_user_session_path, method: :delete
     else
       (button_to 'Sign in', new_user_session_path, class: 'btn') +
-        (button_to 'Sign up', new_user_registration_path, class: 'btn')
+        (button_to 'Sign up', new_user_registration_path, method: :get, class: 'btn')
     end
   end
 
