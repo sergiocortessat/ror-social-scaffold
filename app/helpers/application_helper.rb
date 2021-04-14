@@ -24,7 +24,7 @@ module ApplicationHelper
   end
 
   def sended_to_us?(_user)
-    return unless current_user.friend_requests.any? { |friendship| friendship.user == current_user }
+    return unless current_user.inverse_friendships.any? { |friendship| friendship.user == current_user }
 
     redirect_to root_path
     flash[:notice] = 'this person already sent a request to you'
