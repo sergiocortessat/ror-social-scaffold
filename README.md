@@ -1,93 +1,115 @@
-# Scaffold for social media app with Ruby on Rails
+# Social Media
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+## Table of Contents
+  <br />
 
-## Built With
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Contributing](#contributing)
+* [Contact](#authors)
+* [Acknowledgements](#acknowledgements) 
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
+#
+<br />
 
-## Live Demo
+[![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com) </br>
+![rails](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
 
-TBA
+<br />
+
+#
+
+
+<!-- ABOUT THE PROJECT   -->
+## About The Project
+
+The Social Media project sets up an initial rails app containing a User, and the ability to write post, like them and have friends
+
+## Screenshot Test
+#
+<p align="center">
+  <img height="auto" src="Screenshot.png">
+</p>
+
+## Contributing
+
+Contributions make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+## Prequisites
+
+Ruby & Rails installed on your local machine.
+bundle installed on your machine
+Terminal or similar to execute the program.
 
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+## Clone project
 
-Ruby: 2.6.3
-Rails: 5.2.3
-Postgres: >=9.5
-
-### Setup
-
-Instal gems with:
-
-```
-bundle install
-```
-
-Setup database with:
-
-```
-   rails db:create
-   rails db:migrate
-```
-
-### Github Actions
-
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
-
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
+- To get a local copy up and running follow these simple example steps.
+- Clone this repository with git clone ```https://github.com/sergiocortessat/ror-social-scaffold/tree/feature1``` using your terminal or command line.
+- Change to the project directory by entering: ```cd ror-social-scaffold ``` in the terminal.
 
 
-### Usage
+## How to use the Private-Event app
+1. run the command ```bundle install```   This will install the required dependencies
+2. run the command ```rails webpacker:install ``` This will install the webpack to avoid specific rails 6 problems
+3. run the command ```rails db:create``` This will initialize the necessary migration files
+4. run the command ```rails db:migrate``` 
+5. run the command ```rails server```
 
-Start server with:
 
-```
-    rails server
-```
+## Testing
+In this project, the testing was done using RSpec to test logic specs.
+## Install
+- In a terminal window type gem install RSpec
+- Once RSpec install has finished, type RSpec --init
+- You will see a folder spec and a file .rspec
+- Inside spec folder, you'll see a spec_helper.rb file.
 
-Open `http://localhost:3000/` in your browser.
+## Run
+The testing file is included in spec folder under logicrspec.rb.
+- go to the folder spec: cd spec
+- Inside your terminal type you can type: Rspec spec/*
+- Rspec spec/* to run all test in your spec folder
+ 
+- All test pass
 
-### Run tests
 
-```
-    rpsec --format documentation
-```
+## Run
 
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
-### Deployment
-
-TBA
 
 ## Authors
 
-TBA
+👤 Sergio Cortes Satizabal
 
-## 🤝 Contributing
+- Github: [@sergiocortessat](https://github.com/sergiocortessat)
+- Twitter: [@sergiocortessat](https://twitter.com/sergiocortessat)
+- LinkedIn: [@sergiocortessat](www.linkedin.com/in/sergio-cortes-satizabal-3b452194)
 
-Contributions, issues and feature requests are welcome!
+👤 
 
-Feel free to check the [issues page](issues/).
+- Github: [@nganifaith](https://github.com/nganifaith)
+- Twitter: [@nganifaith](https://twitter.com/Bright_Ngani)
+- LinkedIn: [@nganifaith](https://www.linkedin.com/in/ngani-faith/)
 
-## Show your support
 
-Give a ⭐️ if you like this project!
 
-## Acknowledgments
+### Built With
 
-TBA
+* [RUBY]
+* [RAILS]
+* [DEVISE]
+* [RSPEC&CAPIBARA]
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+
+* [Microverse](https://www.microverse.org/)
 
 ## 📝 License
 
-TBA
+This project is [MIT](https://github.com/sergiocortessat/sergiocortessat/blob/main/LICENSE) licensed.
+
 
