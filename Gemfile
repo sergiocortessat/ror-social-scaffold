@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
+gem 'omniauth-facebook'
+gem 'omniauth'
+gem 'omniauth-rails_csrf_protection'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.3.1'
 # Use postgresql as the database for Active Record
@@ -37,7 +41,7 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
