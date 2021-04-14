@@ -8,3 +8,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 end
+#.method_defined? 
+#https://dev.to/konyu/how-to-check-if-a-particular-method-exists-in-a-ruby-class-and-instance-1gl 
+
+ # .respond_to?(:to_a) 
