@@ -3,11 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
-gem 'omniauth-facebook'
+gem 'dotenv-rails', groups: %i[development test]
 gem 'omniauth'
-gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'omniauth-rails_csrf_protection'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.3.1'
